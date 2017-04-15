@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  item: one
+  owner_id: 1
+  borrower_id: 1
+
+two:
+  status: MyString
+  item: two
+  owner_id: 1
+  borrower_id: 1
