@@ -19,11 +19,11 @@ christy.accept_request(dougie)
 
 # Categories
 
-Category.create!(name: "Garden", image: "http://7-themes.com/data_images/collection/2/4440419-green-wallpapers.jpg")
-Category.create!(name: "Kitchen/Home", image: "https://i.ytimg.com/vi/kNcSfbeJL7M/maxresdefault.jpg")
-Category.create!(name: "Sports", image: "http://kingofwallpapers.com/blue/blue-028.jpg")
-Category.create!(name: "Books/Maps", image: "http://3mcollision.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/s/t/striping_color-07-Brown_10.jpg")
-Category.create!(name: "DIY", image: "http://vignette2.wikia.nocookie.net/symbolism/images/4/43/Orange.png/revision/latest?cb=20140818120046")
+Category.create!(name: "Garden")
+Category.create!(name: "Kitchen/Home")
+Category.create!(name: "Sports")
+Category.create!(name: "Books/Maps")
+Category.create!(name: "DIY")
 
 # Items
 

@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_user!
 
   # GET /requests
   def index
