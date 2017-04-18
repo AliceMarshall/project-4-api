@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!
 
   # GET /items
   def index
@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
   # POST /items
   def create
     @item = Item.new(item_params)
+    @item.user = current_user
 
     if @item.save
       render json: @item, status: :created, location: @item
@@ -27,6 +28,7 @@ class ItemsController < ApplicationController
 
   # PATCH/PUT /items/1
   def update
+    return render json: { errors: ["Unauthorized"] } if @item.user != current_user
     if @item.update(item_params)
       render json: @item
     else
@@ -36,6 +38,7 @@ class ItemsController < ApplicationController
 
   # DELETE /items/1
   def destroy
+    return render json: { errors: ["Unauthorized"] } if @item.user != current_user
     @item.destroy
   end
 

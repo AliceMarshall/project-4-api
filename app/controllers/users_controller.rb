@@ -39,6 +39,34 @@ class UsersController < ApplicationController
     @user.destroy
   end
 
+  # REQUEST FRIEND /users/1/request_friend
+  def friend_request
+    @user = current_user
+    friend = User.find(params[:friend_id])
+    # p friend
+    if @user.friend_request(friend)
+      render json: friend
+    elsif @user.friend_request(friend) == nil
+      render json: 'Already friends'
+    end
+  end
+
+  # ACCEPT FRIEND /users/1/accept_friend
+  def accept_request
+
+  end
+
+  # DECLINE FRIEND /users/1/decline_friend
+  def decline_request
+
+  end
+
+  # REMOVE FRIEND /users/1/remove_friend
+  def remove_request
+
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

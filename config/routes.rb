@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :comments
     post 'register', to: 'authentications#register'
     post 'login', to: 'authentications#login'
+    post 'requestfriend', to: 'users#friend_request'
   end
 end
