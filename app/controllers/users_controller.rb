@@ -53,7 +53,14 @@ class UsersController < ApplicationController
 
   # ACCEPT FRIEND /users/1/accept_friend
   def accept_request
-
+    @user = current_user
+    friend = User.find(params[:friend_id])
+    # p friend
+    if @user.friend_request(friend)
+      render json: friend
+    elsif @user.friend_request(friend) == nil
+      render json: 'Already friends'
+    end
   end
 
   # DECLINE FRIEND /users/1/decline_friend
