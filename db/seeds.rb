@@ -31,3 +31,7 @@ Item.create!(name: "Treaded Digging Spade", instructions: "In good condition. Sq
 Item.create!(name: "Harry Potter Books", instructions: "In good condition. Please don't bend page corners", image: "http://i.imgur.com/e5Um7dj.jpg", category_id: 4, user_id: 2)
 Item.create!(name: "Ski Helmet", instructions: "Includes adjustable sizing, and air vents", image: "http://www.outsideonline.com/sites/default/files/styles/three-quarter-page-scaled-1x/public/forcite-alpine-helmet_h.jpg?itok=28OJRsHG", category_id: 3, user_id: 5)
 Item.create!(name: "Bosch Power Drill", instructions: "Cordless, chargeable drill with 8 drill bits", image: "http://kingfisher.scene7.com/is/image/Kingfisher/3165140839877_03i?crop=438,210,2029,2029&anchor=1452,1224&$IA_halfWidth_350$", category_id: 5, user_id: 3)
+
+# Requests
+
+# Request.create!(status: "pending", item_id: 1, owner_id: 1, borrower_id: 2)
