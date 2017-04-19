@@ -1,4 +1,4 @@
 class RequestSerializer < ActiveModel::Serializer
   attributes :id, :status, :owner_id, :borrower_id
-  has_one :item
+  belongs_to :item
 end
