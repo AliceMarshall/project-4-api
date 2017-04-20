@@ -92,12 +92,12 @@ class UsersController < ApplicationController
     friend = User.find(params[:friend_id])
 
     user_friends = @user.friends
-    friend_friends = friend.friends
-    p "*************"
-    p user_friends
-    p "*****************"
-    p friend_friends
 
+
+    friend_friends = friend.friends
+    mutual = (user_friends & friend_friends).uniq
+
+    render json: mutual
   end
 
 
