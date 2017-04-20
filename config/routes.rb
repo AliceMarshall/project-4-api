@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     put 'acceptfriend', to: 'users#accept_request'
     put 'declinefriend', to: 'users#decline_request'
     put 'removefriend', to: 'users#remove_friend'
+    get 'mutualfriends', to: 'users#mutual_friends'
   end
 end

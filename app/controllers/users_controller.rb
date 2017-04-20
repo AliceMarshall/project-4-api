@@ -87,6 +87,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def mutual_friends
+    @user = current_user
+    friend = User.find(params[:friend_id])
+
+    user_friends = @user.friends
+    friend_friends = friend.friends
+    p "*************"
+    p user_friends
+    p "*****************"
+    p friend_friends
+
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

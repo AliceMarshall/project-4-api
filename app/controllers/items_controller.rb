@@ -4,7 +4,9 @@ class ItemsController < ApplicationController
 
   # GET /items
   def index
-    @items = Item.all
+    # @items = Item.all
+    @items = Item.of_friends(current_user.friends)
+    # @items = Item.of_friends(current_user.friends)
 
     render json: @items
   end
