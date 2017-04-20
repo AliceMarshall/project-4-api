@@ -1,3 +1,7 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :full_name, :email, :telephone, :profile_image, :items, :friends, :friendships
+  attributes :id, :username, :full_name, :email, :telephone, :image_src, :items, :friends, :friendships
+
+  def image_src
+    object.image.url
+  end
 end

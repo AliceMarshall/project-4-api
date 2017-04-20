@@ -35,3 +35,5 @@ Item.create!(name: "Bosch Power Drill", instructions: "Cordless, chargeable dril
 # Requests
 
 # Request.create!(status: "pending", item_id: 1, owner_id: 1, borrower_id: 2)
+
+# Images
