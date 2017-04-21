@@ -87,18 +87,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def mutual_friends
-    @user = current_user
-    friend = User.find(params[:friend_id])
 
-    user_friends = @user.friends
-
-
-    friend_friends = friend.friends
-    mutual = (user_friends & friend_friends).uniq
-
-    render json: mutual
-  end
 
 
   private

@@ -5,8 +5,8 @@ class ItemsController < ApplicationController
   # GET /items
   def index
     # @items = Item.all
-    @items = Item.of_friends(current_user.friends)
-    # @items = Item.of_friends(current_user.friends)
+    # @items =
+    @items = Item.of_mutual_friends(current_user.mutual_friends) + Item.of_friends(current_user.friends)
 
     render json: @items
   end
@@ -52,6 +52,6 @@ class ItemsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def item_params
-      params.permit(:name, :instructions, :available, :category_id, :user_id, :base64)
+      params.permit(:name, :instructions, :available, :friend_level, :category_id, :user_id, :base64)
     end
 end
