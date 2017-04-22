@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   def index
     # @items = Item.all
     # @items =
-    @items = Item.of_mutual_friends(current_user.mutual_friends)
+    @items = Item.of_mutual_friends(current_user.mutual_friends) + Item.of_friends(current_user.friends)
 
     render json: @items
   end

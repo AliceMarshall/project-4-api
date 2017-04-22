@@ -17,9 +17,12 @@ class RequestsController < ApplicationController
   # POST /requests
   def create
     @request = Request.new(request_params)
+    @item = @request.item
+    @user = User.find_by_id(@request.owner_id);
 
     if @request.save
       render json: @request, status: :created, location: @request
+      UserMailer.request_email(@request, @item, @user).deliver
     else
       render json: @request.errors, status: :unprocessable_entity
     end
