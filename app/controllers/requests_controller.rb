@@ -18,11 +18,12 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(request_params)
     @item = @request.item
-    @user = User.find_by_id(@request.owner_id);
+    @user = User.find_by_id(@request.owner_id)
+    @borrower = User.find_by_id(@request.borrower_id)
 
     if @request.save
       render json: @request, status: :created, location: @request
-      UserMailer.request_email(@request, @item, @user).deliver
+      UserMailer.request_email(@request, @item, @user, @borrower).deliver
     else
       render json: @request.errors, status: :unprocessable_entity
     end
@@ -30,8 +31,17 @@ class RequestsController < ApplicationController
 
   # PATCH/PUT /requests/1
   def update
+    @item = @request.item
+    @user = User.find_by_id(@request.borrower_id)
+    @owner = User.find_by_id(@request.owner_id)
+
     if @request.update(request_params)
       render json: @request
+      if @request.status == 'accepted'
+        UserMailer.accept_email(@request, @item, @user, @owner).deliver
+      elsif @request.status == 'rejected'
+        UserMailer.reject_email(@request, @item, @user, @owner).deliver
+      end
     else
       render json: @request.errors, status: :unprocessable_entity
     end

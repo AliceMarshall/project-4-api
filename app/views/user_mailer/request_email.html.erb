@@ -1,2 +1,8 @@
-Write something later.
-<%= @url %>
+<h2>Hi, <%= @user.full_name %></h2>
+
+<h4>It's Community Chest!</h4>
+
+<h4>You have been sent a request from <%= @borrower.full_name %> to borrow <span style="color:#F95800"><%= @item_name %></span>.</h4>
+
+<h4>Click this address below to accept the request and contact the borrower:</h4>
+<p><%= @url %></p>

@@ -1,0 +1,6 @@
+<h2>Hi, <%= @user.full_name %></h2>
+
+<h4>It's Community Chest!</h4>
+
+<h4>I'm sorry but your request had not been accepted to borrow <span style="color:#F95800"><%= @item_name %></span> from <%= @owner.full_name %>. This may be due the item being unavailable, and the owner has not updated the current status. Please try again at a later date, or for further information please contact <%= @owner.full_name %>, via there email address below:</h4>
+<p><%= @owner.email %></p>
