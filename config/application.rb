@@ -28,7 +28,7 @@ module Project4
     config.api_only = true
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins ['localhost:7000', 'https://dry-forest-31989.herokuapp.com/']
+        origins ['localhost:7000', 'https://stormy-plains-97072.herokuapp.com']
         resource '*', :headers => :any, :methods => :any
       end
     end
